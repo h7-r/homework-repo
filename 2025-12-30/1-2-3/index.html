@@ -15,21 +15,17 @@
           english: 85,
         },
       };
-      console.log(student);
 
       // 동적 속성 접근
       function getProperty(obj, key) {
         return obj[key];
       }
-      console.log(`이름 : ${student.name}`);
-      console.log(`나이 : ${student.age}`);
 
       // 평균계산
       function average(scores) {
         const total = scores.math + scores.english;
         return total / 2;
       }
-      console.log(average(student.scores));
 
       // 깊은 복사
       const studentCopy = JSON.parse(JSON.stringify(student));
@@ -37,17 +33,22 @@
       studentCopy.age = 26;
       studentCopy.scores.math = 10;
       studentCopy.scores.english = 5;
-      console.log(`나이 : ${student.age}`);
-      console.log("원본 점수:", student.scores);
-      console.log("복사본 나이", studentCopy.age);
-      console.log("복사본 점수:", studentCopy.scores);
 
       //전쳬 출력
-      console.log(`이름 : ${student.name}`);
-      console.log(`나이 : ${student.age}`);
+      console.groupCollapsed("2번 - 동적 요구사항");
+      console.log(`이름 : ${(getProperty, student("name"))}`);
+      console.log(`나이 : ${(getProperty, student("age"))}`);
+      console.groupEnd();
+
+      console.groupCollapsed("3번 - 평균계산 요구사항");
       console.log(average(student.scores));
+      console.groupEnd();
+
+      console.groupCollapsed("4번 - 복사 요구사항");
+      console.log("복사본 나이", studentCopy.age);
       console.log("원본 점수:", student.scores);
       console.log("복사본 점수:", studentCopy.scores);
+      console.groupEnd();
     </script>
   </body>
 </html>
