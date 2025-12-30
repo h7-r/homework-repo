@@ -35,6 +35,11 @@
       studentCopy.scores.english = 5;
 
       //전쳬 출력
+      console.groupCollapsed("1번 - 객체출력");
+      console.log(student.name);
+      console.log(student.age, "살");
+      console.groupEnd();
+
       console.groupCollapsed("2번 - 동적 요구사항");
       console.log(`이름 : ${getProperty(student, "name")}🤍`);
       console.log(`나이 : ${getProperty(student, "age")}살`);
