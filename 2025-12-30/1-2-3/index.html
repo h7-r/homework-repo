@@ -15,18 +15,21 @@
           english: 85,
         },
       };
-      console.log(studnt);
+      console.log(student);
 
       // 동적 속성 접근
-      function perProperty(obj, key) {
-        return obj[keuy];
+      function getProperty(obj, key) {
+        return obj[key];
       }
+      console.log(getProperty(student, "name"));
+      console.log(getProperty(student, "age"));
 
       // 평균계산
-      const total = student.scores.math + student.scores.english;
-      const average = total / 2;
-
-      cosole.log(average);
+      function average(scores) {
+        const total = scores.math + scores.english;
+        return total / 2;
+      }
+      console.log(average(student.scores));
 
       // 깊은 복사
       const studentCopy = JSON.parse(JSON.stringify(student));
@@ -35,7 +38,7 @@
       //전쳬 출력
       console.log(`이름 : ${student.name}`);
       console.log(`나이 : ${student.age}`);
-      console.log(`평균점수 : ${average}`);
+      console.log(average(student.scores));
       console.log("깊은 복사된 객체 :", studentCopy);
     </script>
   </body>
