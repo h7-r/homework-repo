@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>동적접근및 복사</title>
+  </head>
+  <body>
+    <script>
+      const student = {
+        name: "이해랑",
+        age: 25,
+        scores: {
+          math: 95,
+          english: 85,
+        },
+      };
+      console.log(studnt);
+
+      // 동적 속성 접근
+      function perProperty(obj, key) {
+        return obj[keuy];
+      }
+
+      // 평균계산
+      const total = student.scores.math + student.scores.english;
+      const average = total / 2;
+
+      cosole.log(average);
+
+      // 깊은 복사
+      const studentCopy = JSON.parse(JSON.stringify(student));
+      console.log(studentCopy);
+
+      //전쳬 출력
+      console.log(`이름 : ${student.name}`);
+      console.log(`나이 : ${student.age}`);
+      console.log(`평균점수 : ${average}`);
+      console.log("깊은 복사된 객체 :", studentCopy);
+    </script>
+  </body>
+</html>
