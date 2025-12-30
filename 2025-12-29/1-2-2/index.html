@@ -13,22 +13,22 @@
         { name: "Vodka", price: 250000 },
       ];
 
-      console.log("초기 상품 목록:", products);
+      console.log("초기 상품 목록:", [...products]);
 
       products.push({ name: "Gin", price: 300000 });
 
-      console.log("상품 추가 후:", products);
+      console.log("상품 추가 후:", [...products]);
 
       let removeIndex = 1;
       products.splice(removeIndex, 1);
 
-      console.log("삭제 후 상품 목록:", products);
+      console.log("삭제 후 상품 목록:", [...products]);
 
       products.sort(function (a, b) {
         return a.price - b.price;
       });
 
-      console.log("가격순 정렬 후:", products);
+      console.log("가격순 정렬 후:", [...products]);
 
       let total = 0;
 
@@ -36,7 +36,7 @@
         total += products[i].price;
       }
 
-      console.log("총 합계:", total);
+      console.log(`총 합계: ${total.toLocaleString()}원`);
     </script>
   </body>
 </html>
