@@ -36,8 +36,8 @@
 
       //전쳬 출력
       console.groupCollapsed("2번 - 동적 요구사항");
-      console.log(`이름 : ${(getProperty, student("name"))}`);
-      console.log(`나이 : ${(getProperty, student("age"))}`);
+      console.log(`이름 : ${getProperty(student, "name")}`);
+      console.log(`나이 : ${getProperty(student, "age")}`);
       console.groupEnd();
 
       console.groupCollapsed("3번 - 평균계산 요구사항");
