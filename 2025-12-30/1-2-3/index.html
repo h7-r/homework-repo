@@ -21,8 +21,8 @@
       function getProperty(obj, key) {
         return obj[key];
       }
-      console.log(getProperty(student, "name"));
-      console.log(getProperty(student, "age"));
+      console.log(`이름 : ${student.name}`);
+      console.log(`나이 : ${student.age}`);
 
       // 평균계산
       function average(scores) {
@@ -33,13 +33,21 @@
 
       // 깊은 복사
       const studentCopy = JSON.parse(JSON.stringify(student));
-      console.log(studentCopy);
+
+      studentCopy.age = 26;
+      studentCopy.scores.math = 10;
+      studentCopy.scores.english = 5;
+      console.log(`나이 : ${student.age}`);
+      console.log("원본 점수:", student.scores);
+      console.log("복사본 나이", studentCopy.age);
+      console.log("복사본 점수:", studentCopy.scores);
 
       //전쳬 출력
       console.log(`이름 : ${student.name}`);
       console.log(`나이 : ${student.age}`);
       console.log(average(student.scores));
-      console.log("깊은 복사된 객체 :", studentCopy);
+      console.log("원본 점수:", student.scores);
+      console.log("복사본 점수:", studentCopy.scores);
     </script>
   </body>
 </html>
