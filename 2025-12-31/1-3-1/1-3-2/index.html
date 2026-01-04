@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>간단한 프로필 카드 조작하기</title>
+    <style>
+      body {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+        background: #f2f6fb;
+        color: #1a1a1a;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+      }
+
+      .profile-card {
+        width: 360px;
+        padding: 24px;
+        border-radius: 10px;
+        background: #ffffff;
+        border: 3px solid #9bbcf0;
+        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .profile-card.dark-mode {
+        background: #fff;
+        color: #111;
+      }
+
+      .profile-name {
+        font-size: 20px;
+        margin-bottom: 20px;
+        padding: 12px;
+        text-align: center;
+        background: #e6f0ff;
+        border: 2px solid #8fb3ff;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background 0.25s ease, transform 0.2s ease;
+      }
+
+      .profile-name:hover {
+        background: #d6e6ff;
+        transform: translateY(-2px);
+      }
+
+      button {
+        margin-top: 10px;
+        padding: 8px 12px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+
+      .log-area {
+        margin-top: 12px;
+        font-size: 14px;
+        opacity: 0.85;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 프로필 카드 -->
+    <div class="profile-card" data-user-id="user-001" data-user-id="user-1234">
+      <h2 class="profile-name">이해랑</h2>
+
+      <button id="actionBtn">프로필 변경</button>
+
+      <!-- createElement 로 요소가 추가될 영역 -->
+      <div class="log-area"></div>
+    </div>
+
+    <script>
+      const card = document.querySelector(".profile-card");
+      const nameEl = document.querySelector(".profile-name");
+      const button = document.querySelector("#actionBtn");
+      const logArea = document.querySelector(".log-area");
+
+      button.addEventListener("click", function () {
+        // 1. classList.toggle 사용 (다크모드 토글)
+        card.classList.toggle("dark-mode");
+
+        // 2. dataset 사용
+        const userId = card.dataset.userId;
+        console.log("user-id :", userId);
+
+        // 3. 요소 동적 추가
+        const p = document.createElement("p");
+        p.textContent = "버튼을 클릭했습니다. user-id : " + userId;
+        logArea.appendChild(p);
+      });
+    </script>
+  </body>
+</html>
