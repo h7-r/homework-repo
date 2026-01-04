@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1-3-1 DOM 탐색기 만들기</title>
+  </head>
+  <body>
+    <div>
+      <button id="myBtn" class="btn">버튼을 눌러보세요</button>
+      <button id="yourBtn" class="btn2">버튼2을 눌러보세요</button>
+
+      <div id="result"></div>
+    </div>
+
+    <script>
+      const btn = document.querySelector("#myBtn");
+      const result = document.querySelector("#result");
+      btn.addEventListener("click", function () {
+        //  요구사항 1
+        const tag = btn.tagName;
+        const id = btn.id;
+        const className = btn.className;
+
+        // 요구사항 2
+        const parentTag = btn.parentElement.tagName;
+        const children = btn.children.length;
+
+        // 요구사항 3
+        const oneBtn = document.querySelector("button");
+        const allBtn = document.querySelectorAll("button");
+
+        // 결과값
+        console.group("요구사항 1");
+        console.log(`tagName : ${tag},  ID : ${id}, className : ${className}`);
+        console.groupEnd();
+
+        console.group("요구사항 2");
+        console.log(`parentTag : ${parentTag}, children : ${children}`);
+        console.groupEnd();
+
+        console.group("요구사항 3");
+        console.log("querySelectorButton :", oneBtn.id);
+        console.log("querySelectorAllButton :", allBtn.length);
+        console.groupEnd();
+
+        console.group("요구사항 4");
+        result.textContent = "동적으로 화면에 표시";
+        console.groupEnd();
+      });
+    </script>
+  </body>
+</html>
