@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function createCounter() {
+        let count = 0;
+
+        return {
+          increment() {
+            count++;
+          },
+
+          decremnet() {
+            conut--;
+          },
+
+          getValue() {
+            return count;
+          },
+
+          reset() {
+            count = 0;
+          },
+        };
+      }
+
+      const counter1 = createCounter();
+      const counter2 = createCounter();
+
+      counter1.increment();
+      console.log("counter1 : ", counter1.getValue());
+
+      counter2.increment();
+      console.log("counter2 : ", counter2.getValue());
+    </script>
+  </body>
+</html>

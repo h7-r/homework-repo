@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const hero = {
+        name: "Batman",
+        call: function () {
+          console.log(this.name);
+        },
+      };
+
+      // 그냥 함수만 꺼내서 호출하면 undefined가 나옴
+      // 함수만 꺼내서 호출하면 주인이 없는 함수가 된다
+      // this가 hero를 찾지못해서? undefined 출력
+      const stolenCall = hero.call;
+      stolenCall(); // undefined
+      console.log("stolenCall :", stolenCall());
+
+      // bind를 사용해서 this를 hero로 고정
+      const fixedCall = hero.call.bind(hero);
+      fixedCall(); // "Batman"
+
+      // setTimeout 안에서 호출해도 hero 이름이 나오도록 bind 사용
+      // setTimeout(hero.call.bind(hero), 1000); // 1초 뒤 Batman 출력
+
+      // setTimeout 안에서 this 잃어버리는 예제 하나더 만들기
+      setTimeout(hero.call, 1000);
+    </script>
+  </body>
+</html>
