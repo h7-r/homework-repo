@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>카페 주문 흐름 시뮬레이션</title>
+  </head>
+  <body>
+    <script>
+      //[요구사항 1] 예상 순서: 1 → 4 → 3 → 2
+
+      console.log("1. 가게 오픈"); // 동기 코드 → 즉시 실행
+
+      // setTimeout은 매크로태스크 큐로 들어간다.
+      //시간이 0이어도 현재 실행 스택이 끝난 뒤에 실행된다.
+
+      setTimeout(() => {
+        console.log("2. 일반 손님 주문 완료");
+      }, 0);
+
+      //[요구사항 2]
+      // Promise.then은 마이크로태스크 큐로 들어간다.
+      //마이크로태스크는 매크로태스크(setTimeout)보다 먼저 실행되서
+      //VIP(3)가 일반 주문2보다 먼저 출력된다.
+
+      Promise.resolve().then(() => {
+        console.log("3. VIP 손님 입장");
+      });
+
+      //이벤트 루프와 상관없이 즉시 실행된다.
+      // 동기 코드는 즉시 실행이기 때문.
+
+      console.log("4. 재료 준비");
+    </script>
+  </body>
+</html>

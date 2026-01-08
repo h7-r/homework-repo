@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>쇼핑몰 데이터 파이프라인ㄴ</title>
+  </head>
+  <body>
+    <script>
+      const products = [
+        { name: "Mouse", price: 50000, stock: 10 },
+        { name: "Keyboard", price: 80000, stock: 0 },
+        { name: "Monitor", price: 300000, stock: 5 },
+      ];
+
+      const result = products
+        .filter((product) => {
+          return product.stock > 0;
+        })
+        .map((product) => {
+          return {
+            name: product.name,
+            price: `${product.price}원`,
+            stock: product.stock,
+            salePrice: `${product.price * 0.9}원`,
+          };
+        })
+        .sort((a, b) => {
+          return a.salePrice - b.salePrice;
+        });
+
+      console.log(result);
+    </script>
+  </body>
+</html>
