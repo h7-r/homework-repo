@@ -2,33 +2,9 @@
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <title>그대로 넣은 버전</title>
+    <title>가방 정리하기</title>
   </head>
   <body>
-    <script type="module">
-      // math.js (Mission 1: Named)
-      export function add(a, b) {
-        return a + b;
-      }
-
-      export function sub(a, b) {
-        return a - b;
-      }
-
-      // userProfile.js (Mission 2: Default)
-      const userProfile = {
-        name: "홍길동",
-        age: 20,
-      };
-
-      export default userProfile;
-
-      // main.js
-      import { add, sub } from "./math.js";
-      import userProfile from "./userProfile.js";
-
-      console.log(add(10, 20));
-      console.log(userProfile.name);
-    </script>
+    <script type="module" src="./main.js"></script>
   </body>
 </html>
