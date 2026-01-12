@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Todo</title>
+  </head>
+  <body>
+    <input id="todo-input" />
+    <button id="add-btn">추가</button>
+    <ul id="todo-list"></ul>
+
+    <script>
+      const input = document.getElementById("todo-input");
+      const btn = document.getElementById("add-btn");
+      const list = document.getElementById("todo-list");
+
+      // 저장된 할 일 불러오기
+      const saved = localStorage.getItem("todos");
+      const todos = saved ? JSON.parse(saved) : [];
+
+      // 화면 그리기
+      function render() {
+        list.innerHTML = "";
+        todos.forEach((todo) => {
+          const li = document.createElement("li");
+          li.textContent = todo;
+          list.appendChild(li);
+        });
+      }
+
+      // 버튼 클릭
+      btn.addEventListener("click", () => {
+        const text = input.value;
+        todos.push(text);
+        localStorage.setItem("todos", JSON.stringify(todos));
+        render();
+        input.value = "";
+      });
+
+      // 처음 화면 표시
+      render();
+    </script>
+  </body>
+</html>
