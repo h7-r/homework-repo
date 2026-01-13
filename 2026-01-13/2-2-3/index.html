@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>문자열 조작 함수 만들기</title>
+  </head>
+  <body>
+    <script>
+      /* 
+        1. 문자열 뒤집기 reverser(str)을 사용해서 split사용해서 문자열 쪼개고 
+        reverser로 뒤집고 join사용하여 결과값을 반대로 보이게 
+        2. 숫자 3자리 패딩은 padThree(num) 앞에 0이 2개나와서 3자리로 보이게 
+        num에 5넣고 3자리 고 나오는 게 0으로 하기
+        3. 특정 문자 삭제 removeAll(str, chat)로 banana에서 특정문자 
+        a넣어서 a 다삭제시키기
+        4. 결과 콘솔에 출력하기
+*/
+
+      function reverse(str) {
+        return str.split("").reverse().join("");
+      }
+
+      function padThree(num) {
+        return String(num).padStart(3, "0");
+      }
+
+      function removeAll(str, char) {
+        return str.replaceAll(char, "");
+      }
+      console.group("결과 값");
+      console.group("1. 문자열 뒤집기");
+      console.log(reverse("hello"));
+      console.groupEnd();
+
+      console.group("2. 숫자 3자리로 패딩(만들기");
+      console.log(padThree(5));
+      console.groupEnd();
+
+      console.group("3. 특정 문자 삭제");
+      console.log(removeAll("banana", "a"));
+      console.groupEnd();
+      console.groupEnd;
+    </script>
+  </body>
+</html>
