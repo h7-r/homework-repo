@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>fetch로 공개 API 호출하기</title>
+  </head>
+  <body>
+    <script>
+      async function getTodo() {
+        try {
+          const res = await fetch(
+            "https://jsonplaceholder.typicode.com/todos/1"
+          );
+          const data = await res.json();
+          console.log(data);
+        } catch (err) {
+          console.error("에러 발생:", err);
+        }
+      }
+
+      getTodo();
+    </script>
+  </body>
+</html>
